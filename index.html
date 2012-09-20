@@ -33,7 +33,12 @@
             </div>
           </div>
           
+          
           <div class='row'>
+            
+            <ul id='preset-list'>
+            </ul>
+            
             <p class='info'>
               By Nigel McBryde
             </p>
@@ -52,18 +57,39 @@
       			
       			<button class="start">On</button>
       			<button class="stop">Off</button>
+      			
+      			<div class='preset-form'>
+      			  <input name='title' id='title'></button>
+      			  <button id="new-preset" name="title">New Preset</button>
+      			</div>
           </div>
         </script>
+        
+        <script type="text/template" id="preset-template">
+      		<div class="view">
+      			<%- title %> : 
+      			<%- bpm %> bpm
+      			<button class="destroy">x</button>
+      		</div>
+      		
+      	</script>
         
         <script src="assets/js/libs/jquery.js"></script>
         <script src="assets/js/libs/underscore.js"></script>
         <script src="assets/js/libs/backbone.js"></script>
+        <script src="assets/js/libs/backbone.localstorage.js"></script>
         <script src="assets/js/libs/bootstrap.js"></script>
         <script src="assets/js/libs/jquery-ui.js"></script>
         
         
         <script src="src/models/metronome.js"></script>
+        <script src="src/models/preset.js"></script>
+        
         <script src="src/views/metronome.js"></script>
+        <script src="src/views/presets.js"></script>
+        
+        <script src="src/collections/presets.js"></script>
+        
         <script src="src/application.js"></script>
         
     </body>

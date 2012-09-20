@@ -16,7 +16,8 @@ var app = app || {};
 			events: {
 				'click .start':	'start',
 				'click .stop':	'stop',
-				'slidechange #slider': 'setBpmOnEnter'
+				'slidechange #slider': 'sliderSetBpm',
+				'click #new-preset': 'createPreset'
 			},
 			
 			// The TodoView listens for changes to its model, re-rendering. Since there's
@@ -25,6 +26,8 @@ var app = app || {};
 			initialize: function() {
 				this.model.on( 'change', this.render, this );
 				this.render();
+				
+				window.app.Presets.on( 'add', this.addOne, this );
 			},
 			
 			validate: function(attrs) {
@@ -52,7 +55,6 @@ var app = app || {};
 				});
 				
 				$( "#bpm" ).val( $( "#slider" ).slider( "value" ) );
-				
 			},
 			
 			start: function() {
@@ -63,9 +65,26 @@ var app = app || {};
 				this.model.stop();
 			},
 			
-			setBpmOnEnter: function( e ) {
+			sliderSetBpm: function( e ) {
 				this.model.setBPM($('input#bpm').val());
+			},
+			
+			newAttributes: function () {
+				return {
+					title: $('input#title').val(),
+					bpm: $('input#bpm').val()
+				}
+			},
+			
+			addOne: function ( preset ) {
+				var view = new app.PresetView({ model: preset });
+				$('#preset-list').append( view.render().el );
+			},
+			
+			createPreset: function ( preset ) {
+				app.Presets.create( this.newAttributes() );
+				$('input#title').val('');
 			}
 		});
-
+		
 }());
