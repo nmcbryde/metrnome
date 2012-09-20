@@ -29,6 +29,15 @@ var sound =	 new Audio("/metronome/assets/wav/tick.wav");
 		
 		getStatus: function() {
 			return this.get('timer') === null ? "stopped" : "started"
+		},
+		
+		setBPM: function(bpm) {
+			this.set('bpm', bpm);
+			
+			if ( this.getStatus() == "started" ) {
+				this.stop();
+				this.start();
+			}
 		}
 	});
 	
@@ -45,7 +54,8 @@ var sound =	 new Audio("/metronome/assets/wav/tick.wav");
 			// The DOM events specific to an item.
 			events: {
 				'click .start':	'start',
-				'click .stop':	'stop'
+				'click .stop':	'stop',
+				'slidechange #slider': 'setBpmOnEnter'
 			},
 			
 			// The TodoView listens for changes to its model, re-rendering. Since there's
@@ -55,17 +65,33 @@ var sound =	 new Audio("/metronome/assets/wav/tick.wav");
 				this.model.on( 'change', this.render, this );
 				this.render();
 			},
+			
+			validate: function(attrs) {
+		    if (attrs.bpm < 40 || attrs.bpm > 210) {
+		      return "Beats per minute must be greater than 40 and less than 210";
+		    }
+		  },
 
 			// Re-render the titles of the todo item.
 			render: function() {
-				
 				var template_data = _.extend({
 					status: this.model.getStatus()
 				}, this.model.toJSON());
 				
-				console.log(template_data);
-				
 				this.$el.html( this.template( template_data ) );
+				
+				$( "#slider" ).slider({
+					value: this.model.get('bpm'),
+					min: 40,
+					max: 210,
+					step: 2,
+					slide: function( event, ui ) {
+						$( "#bpm" ).val( + ui.value );
+					}
+				});
+				
+				$( "#bpm" ).val( $( "#slider" ).slider( "value" ) );
+				
 			},
 			
 			start: function() {
@@ -74,6 +100,12 @@ var sound =	 new Audio("/metronome/assets/wav/tick.wav");
 			
 			stop: function() {
 				this.model.stop();
+			},
+			
+			setBpmOnEnter: function( e ) {
+				console.log($('input#bpm').val())
+				this.model.setBPM($('input#bpm').val());
+				
 			}
 		});
 

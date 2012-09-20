@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/application.css">
         <link rel="stylesheet" href="assets/css/bootstrap.css">
-        
+        <link rel="stylesheet" href="assets/css/smoothness/jquery-ui-1.8.23.custom.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -40,11 +40,18 @@
           <div class='wrapper <%- status %>'>
             <button class="start">Start</button>
       			<button class="stop">Stop</button>
+      			
       			<p>
       			  <%- status %>
       			</p>
+      			
       			<p>
-      			  <%- bpm %> bpm
+      			  <p>
+              	<label for="amount">Beats per Minute</label>
+              	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" />
+              </p>
+
+              <div id="slider"></div>
       			</p>
           </div>
         
@@ -55,8 +62,8 @@
         <script src="assets/js/libs/underscore.js"></script>
         <script src="assets/js/libs/backbone.js"></script>
         <script src="assets/js/libs/bootstrap.js"></script>
+        <script src="assets/js/libs/jquery-ui.js"></script>
         
         <script src="src/application.js"></script>
-        
     </body>
 </html>
