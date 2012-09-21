@@ -10,9 +10,11 @@ var app = app || {};
 		defaults: {
 			title: "",
 			bpm: 62
+		},
+		
+		toString: function() {
+			return " test ";
 		}
-		
-		
 	});
 
 }());

@@ -27,7 +27,10 @@ var app = app || {};
 				this.model.on( 'change', this.render, this );
 				this.render();
 				
+				window.app.Presets.on( 'reset', this.addAll, this );
 				window.app.Presets.on( 'add', this.addOne, this );
+				
+				app.Presets.fetch();
 			},
 			
 			validate: function(attrs) {
@@ -36,11 +39,10 @@ var app = app || {};
 		    }
 		  },
 
-			// Re-render the titles of the todo item.
 			render: function() {
 				var template_data = _.extend({
 					status: this.model.getStatus()
-				}, this.model.toJSON());
+				}, this.model.toJSON() );
 				
 				this.$el.html( this.template( template_data ) );
 				
@@ -66,6 +68,7 @@ var app = app || {};
 			},
 			
 			sliderSetBpm: function( e ) {
+				$('#preset-list li').removeClass('loaded');
 				this.model.setBPM($('input#bpm').val());
 			},
 			
@@ -76,14 +79,35 @@ var app = app || {};
 				}
 			},
 			
+			addAll: function() {
+				this.$('#preset-list').html('');
+				app.Presets.each(this.addOne, this);
+			},
+			
 			addOne: function ( preset ) {
 				var view = new app.PresetView({ model: preset });
 				$('#preset-list').append( view.render().el );
 			},
 			
+			loadPreset: function ( preset ) {
+				this.model.setBPM(preset.model.get('bpm'));
+			},
+			
 			createPreset: function ( preset ) {
-				app.Presets.create( this.newAttributes() );
+				if ($('input#title').val().trim()) {
+					app.Presets.create( this.newAttributes() );
+				} else {
+					$('input#title').focus();
+				}
 				$('input#title').val('');
+			},
+			
+			exportPresets: function () {
+				var presets_data = app.Presets.map( function( preset ) {
+					return preset.get('title') + "|" + preset.get('bpm') + "\n";
+				});
+				
+				window.location = "export.php?json=" + presets_data;
 			}
 		});
 		

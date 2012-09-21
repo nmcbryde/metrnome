@@ -11,7 +11,8 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+        <link rel="icon" type="image/png" href="favicon.png">
+              
         <link rel="stylesheet" href="assets/css/normalize.css">
         <link rel="stylesheet" href="assets/css/main.css">
         
@@ -35,13 +36,23 @@
           
           
           <div class='row'>
-            
-            <ul id='preset-list'>
-            </ul>
-            
-            <p class='info'>
+            <div class='span6 offset3 presets'>
+              
+              <h4>Presets</h4>
+              
+              <ul id='preset-list' class='unstyled'>
+              </ul>
+              
+              <p>
+                <button class='export'>Export</button>
+                Save Presets to File
+              </p>
+            </div>
+          </div>
+          <div class='row'>  
+            <div class='info'>
               By Nigel McBryde
-            </p>
+            </div>
           </div>
         </div>
         
@@ -49,7 +60,7 @@
           <div class='wrapper <%- status %>'>
       			<p>
        		 	  <div id='bpm-div'>
-                <label for="amount">Beats per Minute</label>
+                <label for="amount">Beats per Minute:</label>
               	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" readonly='readonly' />
               </div>
               <div id="slider"></div>
@@ -69,7 +80,7 @@
       		<div class="view">
       			<%- title %> : 
       			<%- bpm %> bpm
-      			<button class="destroy">x</button>
+      			<button class="destroy icon-trash"></button>
       		</div>
       		
       	</script>
@@ -81,14 +92,12 @@
         <script src="assets/js/libs/bootstrap.js"></script>
         <script src="assets/js/libs/jquery-ui.js"></script>
         
-        
         <script src="src/models/metronome.js"></script>
         <script src="src/models/preset.js"></script>
         
+        <script src="src/collections/presets.js"></script>
         <script src="src/views/metronome.js"></script>
         <script src="src/views/presets.js"></script>
-        
-        <script src="src/collections/presets.js"></script>
         
         <script src="src/application.js"></script>
         

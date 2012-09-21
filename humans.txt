@@ -3,13 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
+    Nigel McBryde -- Developer -- nigel@mcbryde.com.au
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Backbone
+    jQuery, jQueryUI,
+    Backbone, Backbone.localStorage, 
+    Bootstrap

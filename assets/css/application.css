@@ -1,5 +1,6 @@
 body {
 	background: url('../img/bg.png');
+	color: #666;
 }
 
 h1 {
@@ -10,13 +11,23 @@ h1 {
 	text-align: center;
 }
 
+#bpm-div {
+	margin-bottom: 12px;
+}
+
 #bpm-div label {
 	display: inline;
+	
 }
 
 input#bpm {
 	display:inline;
 	width: 30px;
+	box-shadow: none;
+	text-decoration: underline;
+	padding: 0;
+	margin: 0;
+	margin-left: 12px;
 }
 
 #metronome {
@@ -45,4 +56,42 @@ input#bpm {
 .preset-form {
 	display: inline;
 	float: right;
+}
+
+.presets h4 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	color: #888;
+	text-align: center;
+}
+
+.presets ul li {
+	width: 100%;
+	padding: 8px;
+	border-bottom: solid 1px transparent;
+}
+
+.presets ul li:hover {
+	cursor: pointer;
+	border-bottom: dashed 1px #cacaca;
+	background-color: rgba(0, 0, 0, .02);
+}
+
+.presets ul li.loaded {
+	color: #333;
+}
+
+.presets ul li .destroy {
+	float: right;
+	background-color: transparent;
+	border: none;
+	height: 16px;
+	width: 16px;
+	margin-top: 3px;
+	opacity: 0.4;
+}
+
+.presets ul li .destroy:hover {
+	opacity: 1;
 }

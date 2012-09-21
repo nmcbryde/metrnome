@@ -17,9 +17,10 @@ $(function() {
 
 		// The DOM events specific to an item.
 		events: {
-			'click .destroy':	'clear'
+			'click .destroy':	'clear',
+			'click': 'load'
 		},
-
+		
 		// The TodoView listens for changes to its model, re-rendering. Since there's
 		// a one-to-one correspondence between a **Todo** and a **TodoView** in this
 		// app, we set a direct reference on the model for convenience.
@@ -32,7 +33,17 @@ $(function() {
 			this.$el.html( this.template( this.model.toJSON() ) );
 			return this;
 		},
-
+		
+		load: function() {
+			metronome.loadPreset(this);
+			this.updateLoaded();
+		},
+		
+		updateLoaded: function() {
+			$('#preset-list li').removeClass('loaded');
+			this.$el.addClass('loaded');
+		},
+		
 		// Remove the item, destroy the model from *localStorage* and delete its view.
 		clear: function() {
 			this.model.destroy();
