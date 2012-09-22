@@ -38,8 +38,26 @@ var app = app || {};
 			return string;
 		},
 		
-		fromExportString: function() {
+		// load in presets from a file. Wipes existing presets
+		fromExportString: function( string ) {
+			var presets = string.split("\n");
+			var _this = this;
 			
+			_.each( presets, function( preset ) {
+				if ( preset.trim() ) {
+					var args = {
+						title: preset.split("=")[0],
+						bpm: preset.split("=")[1]
+					}
+					_this.create( new app.Preset (args) );
+				}
+			})
+		},
+		
+		loadFile: function ( string ) {
+			// Use text input for now
+			// TODO - make upload function with php
+			console.log (window.location = 'file:///' + string);
 		}
 		
 	});

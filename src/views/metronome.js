@@ -103,9 +103,13 @@ var app = app || {};
 			},
 			
 			exportPresets: function () {
-				
 				window.location = "export.php?json=" + app.Presets.toExportString();
+			},
+			
+			loadPresets: function( string ) {
+				app.Presets.fromExportString( string );
 			}
+			
 		});
 		
 }());

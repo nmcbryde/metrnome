@@ -40,19 +40,32 @@
               
               <h4>Presets</h4>
               
-              <ul id='preset-list' class='unstyled'>
-              </ul>
-              
-              <p>
-                <button class='import'>Import</button>
-                <button class='export'>Export</button>
+              <ul id='preset-list' class='unstyled'></ul>
+
+              <p class='tools'>
+                <a href ="#" class='export'><i class='icon-circle-arrow-down'></i> Export</a> | <a href="#importModal" role="button" class="" data-toggle="modal"><i class='icon-circle-arrow-up'></i> Import</a>
               </p>
+              
             </div>
           </div>
-          <div class='row'>  
-            <div class='info'>
-              By Nigel McBryde
-            </div>
+
+        </div>
+        
+        <div class="modal hide fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Import your presets</h3>
+          </div>
+          <div class="modal-body">
+            <p>
+              This will not affect your existing presets.
+            </p>
+            
+            <textarea id='import'></textarea>
+            
+          </div>
+          <div class="modal-footer">
+            <button class="btn import" data-dismiss="modal" aria-hidden="true">Import</button>
           </div>
         </div>
         

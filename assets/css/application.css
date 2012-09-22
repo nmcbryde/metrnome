@@ -99,3 +99,31 @@ input#bpm {
 .presets ul li .destroy:hover {
 	opacity: 1;
 }
+
+.presets div.footer {
+	text-align: center;
+}
+
+#importModal textarea {
+	width: 515px;
+}
+
+.presets p.tools {
+	color: #A6A6A6;
+	font-size: 12px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+	text-align: center;
+}
+
+.presets p.tools i {
+	margin-top: 0px;
+	opacity: 0.6;
+}
+
+.presets p.tools a:hover {
+	text-decoration: none;
+}
+
+.presets p.tools a:hover i {
+	opacity: 0.9;
+}
