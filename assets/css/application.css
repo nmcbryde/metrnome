@@ -66,6 +66,10 @@ input#bpm {
 	text-align: center;
 }
 
+.presets ul {
+	margin-bottom: 24px;
+}
+
 .presets ul li {
 	width: 100%;
 	padding: 8px;

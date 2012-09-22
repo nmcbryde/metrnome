@@ -27,6 +27,19 @@ var app = app || {};
 		// Todos are sorted by their original insertion order.
 		comparator: function( preset ) {
 			return preset.get('order');
+		},
+		
+		toExportString: function() {
+			var string = "";
+			this.map( function( preset ) {
+				string += preset.get('title') + "=" + preset.get('bpm') + ",";
+			});
+			
+			return string;
+		},
+		
+		fromExportString: function() {
+			
 		}
 		
 	});

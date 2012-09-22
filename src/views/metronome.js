@@ -103,11 +103,8 @@ var app = app || {};
 			},
 			
 			exportPresets: function () {
-				var presets_data = app.Presets.map( function( preset ) {
-					return preset.get('title') + "|" + preset.get('bpm') + "\n";
-				});
 				
-				window.location = "export.php?json=" + presets_data;
+				window.location = "export.php?json=" + app.Presets.toExportString();
 			}
 		});
 		
