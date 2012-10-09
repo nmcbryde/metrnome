@@ -10,4 +10,4 @@
     HTML5, CSS3
     jQuery, jQueryUI,
     Backbone, Backbone.localStorage, 
-    Bootstrap
+    Bootstrap, soundmanager2

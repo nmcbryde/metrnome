@@ -1,6 +1,5 @@
 body {
 	background: url('../img/bg.png');
-	font-family: 'MuseoSlab500', Helvetica Neue, Helvetica, Arial;
 	color: #666;
 	font-size: 12px;
 }
@@ -9,8 +8,9 @@ h1 {
 	font-size: 51px;
 	color: #D9D9D9;
 	text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
-	padding: 12px;
+	padding: 35px;
 	text-align: center;
+	font-family: Helvetica Neue, Helvetica, Arial;
 }
 
 #on-off-div {
@@ -23,7 +23,6 @@ h1 {
 }
 
 #bpm-div {
-	float: left;
 }
 
 #bpm-div label {
@@ -43,6 +42,7 @@ input#bpm {
 }
 
 #metronome {
+	
 	padding: 10px 15px;
 	background: rgba(255, 255, 255, 0.2);
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
@@ -63,11 +63,27 @@ input#bpm {
 	font-size: 12px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 	text-align: center;
+	font-family: 'MuseoSlab500', Helvetica Neue, Helvetica, Arial;
+}
+
+.info a {
+	color: #8d8d8d;
+	text-decoration: underline;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.info a:hover {
+	color: rgba(0, 0, 0, 0.7);
+	text-decoration: none;
 }
 
 .preset-form {
 	display: inline;
-	float: right;
+	text-align: right;
+}
+
+.presets {
+	font-family: 'MuseoSlab500', Helvetica Neue, Helvetica, Arial;
 }
 
 .presets h4 {
@@ -97,6 +113,7 @@ input#bpm {
 
 .presets ul li.loaded {
 	color: #333;
+	background-color: rgba(0, 85, 128, .03);
 }
 
 .presets ul li .destroy {

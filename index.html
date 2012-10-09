@@ -54,6 +54,10 @@
 
         </div>
         
+        <footer class='info'>
+          By <a href='http://www.mcbryde.com.au'>Nigel McBryde</a>
+        </footer>
+        
         <div class="modal hide fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -72,8 +76,10 @@
           </div>
         </div>
         
+        
         <script type="text/template" id="metronome-template">
           <div class='wrapper <%- status %>'>
+      			
       			
       			<div id='on-off-div'>
         			<button class="start">On</button>
@@ -81,17 +87,19 @@
        		 	</div>
             <div id="slider"></div>
     			
-      			<div id='bpm-div'>
-              <label for="amount">Beats per Minute:</label>
-            	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" readonly='readonly' />
-            </div>
-      			
-      			
-      			
-      			<div class='preset-form'>
-      			  <input name='title' id='title'></button>
-      			  <button id="new-preset" name="title">New Preset</button>
+    			  <div class='row'>
+      			  <div id='bpm-div' class='span2'>
+                <label for="amount">Beats per Minute:</label>
+              	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" readonly='readonly' />
+              </div>
+              
+              <div class='preset-form span4'>
+        			  <input name='title' id='title'></button>
+        			  <button id="new-preset" name="title">New Preset</button>
+        			</div>
       			</div>
+      			
+      			
           </div>
         </script>
         
