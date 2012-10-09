@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="assets/css/normalize.css">
         <link rel="stylesheet" href="assets/css/main.css">
         
+        <link rel="stylesheet" href="assets/css/font-stylesheet.css">
         <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/bootstrap-responsive.css">
         <link rel="stylesheet" href="assets/css/media.css">
@@ -36,7 +37,6 @@
             <div id='metronome' class='span6 offset3'>
             </div>
           </div>
-          
           
           <div class='row'>
             <div class='span6 offset3 presets'>
@@ -74,16 +74,19 @@
         
         <script type="text/template" id="metronome-template">
           <div class='wrapper <%- status %>'>
-      			<p>
-       		 	  <div id='bpm-div'>
-                <label for="amount">Beats per Minute:</label>
-              	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" readonly='readonly' />
-              </div>
-              <div id="slider"></div>
-      			</p>
       			
-      			<button class="start">On</button>
-      			<button class="stop">Off</button>
+      			<div id='on-off-div'>
+        			<button class="start">On</button>
+        			<button class="stop">Off</button>
+       		 	</div>
+            <div id="slider"></div>
+    			
+      			<div id='bpm-div'>
+              <label for="amount">Beats per Minute:</label>
+            	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" readonly='readonly' />
+            </div>
+      			
+      			
       			
       			<div class='preset-form'>
       			  <input name='title' id='title'></button>
@@ -107,6 +110,7 @@
         <script src="assets/js/libs/backbone.localstorage.js"></script>
         <script src="assets/js/libs/bootstrap.js"></script>
         <script src="assets/js/libs/jquery-ui.js"></script>
+        <script src="assets/js/libs/soundmanager2.js"></script>
         
         <script src="src/models/metronome.js"></script>
         <script src="src/models/preset.js"></script>

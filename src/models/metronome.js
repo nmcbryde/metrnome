@@ -1,5 +1,4 @@
 var app = app || {};
-var sound =	 new Audio("/metronome/assets/wav/tick.wav");
 
 (function() {
 	'use strict';
@@ -10,15 +9,28 @@ var sound =	 new Audio("/metronome/assets/wav/tick.wav");
 
 		defaults: {
 			bpm: 62,
-			timer: null
+			timer: null,
+			tickSound: null,
+			soundManager: soundManager.setup({
+			  url: '/metronome/assets/flash/',
+			  onready: function() {
+			    // Ready to use; soundManager.createSound() etc. can now be called.
+					var tickSound = soundManager.createSound({
+			      id: 'tick',
+			      url: '/metronome/assets/wav/tick.wav'
+			    });
+			  }
+			}),
 		},
 		
 		tick: function() {
-			sound.play();
+			//sound.play();
+			//testSound = this.get('soundManager');
+			metronome.model.get('soundManager').play('tick');
+			
 		},
 		
 		start: function() {
-			this.tick();
 			this.set('timer', window.setInterval(this.tick, 60000/this.get('bpm')));
 		},
 		
