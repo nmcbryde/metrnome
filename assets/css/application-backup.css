@@ -1,0 +1,159 @@
+body {
+	background: url('../img/bg.png');
+	color: #666;
+	font-size: 12px;
+}
+
+h1 {
+	font-size: 51px;
+	color: #D9D9D9;
+	text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+	padding: 35px;
+	text-align: center;
+	font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+#on-off-div {
+	text-align: center;
+	margin-bottom: 12px;
+}
+
+#slider {
+	margin-bottom: 12px;
+}
+
+#bpm-div {
+}
+
+#bpm-div label {
+	display: inline;
+	
+}
+
+input#bpm {
+	display:inline;
+	width: 30px;
+	box-shadow: none;
+	text-decoration: underline;
+	padding: 0;
+	margin: 0;
+	margin-left: 12px;
+	margin-top: -2px;
+}
+
+#metronome {
+	
+	padding: 10px 15px;
+	background: rgba(255, 255, 255, 0.2);
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
+	margin-bottom: 50px;
+}
+
+#metronome .wrapper.started button.start {
+	display: none;
+}
+
+
+#metronome .wrapper.stopped button.stop {
+	display:none;
+}
+
+.info {
+	color: #A6A6A6;
+	font-size: 12px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+	text-align: center;
+	font-family: 'MuseoSlab500', Helvetica Neue, Helvetica, Arial;
+}
+
+.info a {
+	color: #8d8d8d;
+	text-decoration: underline;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.info a:hover {
+	color: rgba(0, 0, 0, 0.7);
+	text-decoration: none;
+}
+
+.preset-form {
+	display: inline;
+	text-align: right;
+}
+
+.presets {
+	font-family: 'MuseoSlab500', Helvetica Neue, Helvetica, Arial;
+}
+
+.presets h4 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	color: #888;
+	text-align: center;
+}
+
+.presets ul {
+	margin-bottom: 24px;
+}
+
+.presets ul li {
+	width: 100%;
+	padding: 8px;
+	border-bottom: solid 1px transparent;
+	letter-spacing: 1px;
+}
+
+.presets ul li:hover {
+	cursor: pointer;
+	border-bottom: dashed 1px #cacaca;
+	background-color: rgba(0, 0, 0, .02);
+}
+
+.presets ul li.loaded {
+	color: #333;
+	background-color: rgba(0, 85, 128, .03);
+}
+
+.presets ul li .destroy {
+	float: right;
+	background-color: transparent;
+	border: none;
+	height: 16px;
+	width: 16px;
+	margin-top: 3px;
+	opacity: 0.4;
+}
+
+.presets ul li .destroy:hover {
+	opacity: 1;
+}
+
+.presets div.footer {
+	text-align: center;
+}
+
+#importModal textarea {
+	width: 515px;
+}
+
+.presets p.tools {
+	color: #A6A6A6;
+	font-size: 12px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+	text-align: center;
+}
+
+.presets p.tools i {
+	margin-top: 0px;
+	opacity: 0.6;
+}
+
+.presets p.tools a:hover {
+	text-decoration: none;
+}
+
+.presets p.tools a:hover i {
+	opacity: 0.9;
+}
