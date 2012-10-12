@@ -12,12 +12,12 @@ var app = app || {};
 			timer: null,
 			tickSound: null,
 			soundManager: soundManager.setup({
-			  url: '/metronome/assets/flash/',
+			  url: '/assets/flash/',
 			  onready: function() {
 			    // Ready to use; soundManager.createSound() etc. can now be called.
 					var tickSound = soundManager.createSound({
 			      id: 'tick',
-			      url: '/metronome/assets/wav/tick.wav'
+			      url: '/assets/wav/tick.wav'
 			    });
 			  }
 			}),
