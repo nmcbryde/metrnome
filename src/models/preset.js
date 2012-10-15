@@ -1,16 +1,11 @@
-var app = app || {};
-
 (function() {
-	'use strict';
+  'use strict';
 
-	// Preset Model
-	// ----------
-	app.Preset = Backbone.Model.extend({
+  app.Preset = Backbone.Model.extend({
+    defaults: {
+      title: "",
+      bpm: 62
+    }
+  });
 
-		defaults: {
-			title: "",
-			bpm: 62
-		}
-	});
-
-}());
+}).call(this);
