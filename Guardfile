@@ -4,4 +4,4 @@ guard 'less', :all_on_start => true, :all_after_change => true do
   watch(%r{^assets/css/application.less$})
 end
 
-guard 'coffeescript', :input => 'src'
+guard 'coffeescript', :input => 'src', :output => 'assets/js'

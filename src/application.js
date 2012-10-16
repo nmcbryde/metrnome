@@ -1,7 +1,9 @@
+window.app = window.app || {};
+
 jQuery(function($) {
 
   // Initialize your application here.
-	metronome = new app.MetronomeView();
+	metronome = new window.app.MetronomeView();
 	
 	$(document)
 		.delegate('.export', 'click', function() {

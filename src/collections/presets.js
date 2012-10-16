@@ -1,4 +1,4 @@
-var app = app || {};
+window.app = window.app || {};
 
 (function() {
 	'use strict';
@@ -11,7 +11,7 @@ var app = app || {};
 	var PresetList = Backbone.Collection.extend({
 
 		// Reference to this collection's model.
-		model: app.Preset,
+		model: window.app.Preset,
 
 		// Save all of the todo items under the `"todos"` namespace.
 		localStorage: new Store('presets-backbone'),
@@ -49,7 +49,7 @@ var app = app || {};
 						title: preset.split("=")[0],
 						bpm: preset.split("=")[1]
 					}
-					_this.create( new app.Preset (args) );
+					_this.create( new window.app.Preset (args) );
 				}
 			})
 		},
@@ -63,6 +63,6 @@ var app = app || {};
 	});
 
 	// Create our global collection of **Todos**.
-	app.Presets = new PresetList();
+	window.app.Presets = new PresetList();
 
 }());

@@ -1,7 +1,9 @@
 (function() {
   'use strict';
 
-  app.Preset = Backbone.Model.extend({
+  window.app = window.app || {};
+
+  window.app.Preset = Backbone.Model.extend({
     defaults: {
       title: "",
       bpm: 62

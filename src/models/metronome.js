@@ -1,4 +1,4 @@
-var app = app || {};
+window.app = app || {};
 
 (function() {
 	'use strict';

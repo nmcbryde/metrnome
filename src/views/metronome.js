@@ -1,11 +1,11 @@
-var app = app || {};
+window.app = window.app || {};
 
 (function() {
 	'use strict';
 	
-	app.MetronomeView = Backbone.View.extend({
+	window.app.MetronomeView = Backbone.View.extend({
 			
-			model: new app.Metronome(),
+			model: new window.app.Metronome(),
 			
 			el: "#metronome",
 
@@ -30,7 +30,7 @@ var app = app || {};
 				window.app.Presets.on( 'reset', this.addAll, this );
 				window.app.Presets.on( 'add', this.addOne, this );
 				
-				app.Presets.fetch();
+				window.app.Presets.fetch();
 			},
 			
 			validate: function(attrs) {
@@ -81,21 +81,22 @@ var app = app || {};
 			
 			addAll: function() {
 				this.$('#preset-list').html('');
-				app.Presets.each(this.addOne, this);
+				window.app.Presets.each(this.addOne, this);
 			},
 			
 			addOne: function ( preset ) {
-				var view = new app.PresetView({ model: preset });
+				var view = new window.app.PresetView({ model: preset });
 				$('#preset-list').append( view.render().el );
 			},
 			
 			loadPreset: function ( preset ) {
+				console.log(preset.model.get('bpm'))
 				this.model.setBPM(preset.model.get('bpm'));
 			},
 			
 			createPreset: function ( preset ) {
 				if ($('input#title').val().trim()) {
-					app.Presets.create( this.newAttributes() );
+					window.app.Presets.create( this.newAttributes() );
 				} else {
 					$('input#title').focus();
 				}
@@ -103,11 +104,12 @@ var app = app || {};
 			},
 			
 			exportPresets: function () {
-				window.location = "export.php?json=" + app.Presets.toExportString();
+				window.location = "export.php?json=" + window.app.Presets.toExportString();
 			},
 			
 			loadPresets: function( string ) {
-				app.Presets.fromExportString( string );
+
+				window.app.Presets.fromExportString( string );
 			}
 			
 		});
