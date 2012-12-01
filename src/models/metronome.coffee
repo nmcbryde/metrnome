@@ -9,9 +9,23 @@ window.app.Metronome = Backbone.Model.extend
 	defaults:
 		bpm: 62
 		timer: null
+		ticksound: null
+		soundManager: soundManager.setup({
+			url: '/assets/flash/'
+			onready: ->
+				tickSound = soundManager.createSound({
+					id: 'tick'
+					url: '/assets/wav/tick.wav'
+				})
+		})
 
 	tick: ->
-		window.sound.play()
+		#window.app.sound.play()
+		
+
+		console.log(this)
+		
+		window.app.Metronome.model.get('soundManager').play('tick')
 	
 	start: ->
 		this.set('timer', window.setInterval(this.tick, 60000/this.get('bpm')))

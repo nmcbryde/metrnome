@@ -6,10 +6,22 @@
   window.app.Metronome = Backbone.Model.extend({
     defaults: {
       bpm: 62,
-      timer: null
+      timer: null,
+      ticksound: null,
+      soundManager: soundManager.setup({
+        url: '/assets/flash/',
+        onready: function() {
+          var tickSound;
+          return tickSound = soundManager.createSound({
+            id: 'tick',
+            url: '/assets/wav/tick.wav'
+          });
+        }
+      })
     },
     tick: function() {
-      return window.sound.play();
+      console.log(this);
+      return window.app.Metronome.model.get('soundManager').play('tick');
     },
     start: function() {
       return this.set('timer', window.setInterval(this.tick, 60000 / this.get('bpm')));
