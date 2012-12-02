@@ -40,18 +40,13 @@
           
           <div class='row'>
             <div class='span6 offset3 presets'>
-              
               <h4>Presets</h4>
-              
               <ul id='preset-list' class='unstyled'></ul>
-
               <p class='tools'>
                 <a href ="#" class='export'><i class='icon-circle-arrow-down'></i> Export</a> | <a href="#importModal" role="button" class="" data-toggle="modal"><i class='icon-circle-arrow-up'></i> Import</a>
               </p>
-              
             </div>
           </div>
-
         </div>
         
         <footer class='info'>
@@ -76,30 +71,23 @@
           </div>
         </div>
         
-        
         <script type="text/template" id="metronome-template">
           <div class='wrapper <%- status %>'>
-      			
-      			
       			<div id='on-off-div'>
         			<button class="start">On</button>
         			<button class="stop">Off</button>
        		 	</div>
-            <div id="slider"></div>
-    			
+            <div id="slider"></div>    			
     			  <div class='row'>
       			  <div id='bpm-div' class='span2'>
                 <label for="amount">Beats per Minute:</label>
               	<input type="text" id="bpm" style="border:0; color:#f6931f; font-weight:bold;" readonly='readonly' />
               </div>
-              
               <div class='preset-form span4'>
         			  <input name='title' id='title'></button>
         			  <button id="new-preset" name="title">New Preset</button>
         			</div>
       			</div>
-      			
-      			
           </div>
         </script>
         
@@ -109,7 +97,6 @@
       			<%- bpm %> bpm
       			<button class="destroy icon-trash"></button>
       		</div>
-      		
       	</script>
         
         <script src="assets/js/libs/jquery.js"></script>

@@ -3,31 +3,13 @@ var app = app || {};
 (function() {
 	'use strict';
 
-	// Todo Collection
+	// Preset Collection
 	// ---------------
-
-	// The collection of todos is backed by *localStorage* instead of a remote
-	// server.
 	var PresetList = Backbone.Collection.extend({
 
-		// Reference to this collection's model.
 		model: app.Preset,
 
-		// Save all of the todo items under the `"todos"` namespace.
 		localStorage: new Store('presets-backbone'),
-		
-		
-		nextOrder: function() {
-			if ( !this.length ) {
-				return 1;
-			}
-			return this.last().get('order') + 1;
-		},
-
-		// Todos are sorted by their original insertion order.
-		comparator: function( preset ) {
-			return preset.get('order');
-		},
 		
 		toExportString: function() {
 			var string = "";
@@ -38,7 +20,7 @@ var app = app || {};
 			return string;
 		},
 		
-		// load in presets from a file. Wipes existing presets
+		// loads in presets from text input
 		fromExportString: function( string ) {
 			var presets = string.split("\n");
 			var _this = this;
@@ -52,17 +34,9 @@ var app = app || {};
 					_this.create( new app.Preset (args) );
 				}
 			})
-		},
-		
-		loadFile: function ( string ) {
-			// Use text input for now
-			// TODO - make upload function with php
-			console.log (window.location = 'file:///' + string);
 		}
-		
 	});
-
-	// Create our global collection of **Todos**.
+	
 	app.Presets = new PresetList();
 
 }());

@@ -1,6 +1,5 @@
 jQuery(function($) {
 
-  // Initialize your application here.
 	metronome = new app.MetronomeView();
 	
 	$(document)
@@ -10,7 +9,4 @@ jQuery(function($) {
 		.delegate('.import', 'click', function() {
 			metronome.loadPresets( $('#import').val() )
 		});
-	
 });
-
-
