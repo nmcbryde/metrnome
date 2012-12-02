@@ -8,7 +8,6 @@ var app = app || {};
 			model: new app.Metronome(),
 			
 			el: "#metronome",
-
 			template: _.template( $('#metronome-template').html() ),
 
 			events: {
@@ -41,6 +40,10 @@ var app = app || {};
 				
 				this.$el.html( this.template( template_data ) );
 				
+				this.setupSlider();
+			},
+			
+			setupSlider: function() {
 				$( "#slider" ).slider({
 					value: this.model.get('bpm'),
 					min: 40,
@@ -50,7 +53,6 @@ var app = app || {};
 						$( "#bpm" ).val( + ui.value );
 					}
 				});
-				
 				$( "#bpm" ).val( $( "#slider" ).slider( "value" ) );
 			},
 			
@@ -77,11 +79,23 @@ var app = app || {};
 			addAll: function() {
 				this.$('#preset-list').html('');
 				app.Presets.each(this.addOne, this);
+				
+				this.checkPrompt();
+			},
+			
+			checkPrompt: function () {
+				// show the prompt if there are no presets loaded
+				if (app.Presets.length == 0) {
+					$('.preset-form .prompt').show();
+				} else {
+					$('.preset-form .prompt').hide();
+				}
 			},
 			
 			addOne: function ( preset ) {
 				var view = new app.PresetView({ model: preset });
 				$('#preset-list').append( view.render().el );
+				this.checkPrompt();
 			},
 			
 			loadPreset: function ( preset ) {

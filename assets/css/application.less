@@ -28,6 +28,9 @@ h1 {
 	}
 	
 	input#bpm {
+		border:0;
+		color:#f6931f;
+		font-weight:bold;
 		display:inline;
 		width: 30px;
 		box-shadow: none;
@@ -54,6 +57,17 @@ h1 {
 	.preset-form {
 		display: inline;
 		text-align: right;
+		position: relative;
+		
+		.prompt {
+			display: none;
+			width: 300px;
+			height: 60px;
+			background: url('../img/preset-prompt.png') no-repeat;
+			position: absolute;
+			top: 30px;
+			right: -30px;
+		}
 	}
 }
 

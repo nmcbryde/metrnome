@@ -11,7 +11,7 @@ $(function() {
 		tagName:  'li',
 
 		template: _.template( $('#preset-template').html() ),
-
+		
 		events: {
 			'click .destroy':	'clear',
 			'click': 'load'

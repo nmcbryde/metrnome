@@ -8,6 +8,8 @@ var app = app || {};
 	var PresetList = Backbone.Collection.extend({
 
 		model: app.Preset,
+		
+		untouched: true,
 
 		localStorage: new Store('presets-backbone'),
 		
