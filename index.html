@@ -33,7 +33,7 @@
         <!-- Add your site or application content here -->
         <div class='container' id='content'>
           <div class='row'>
-            <h1>Metrnome.</h1>
+            <h1><a href="/">Metrnome.</a></h1>
             <div id='metronome' class='span6 offset3'>
             </div>
           </div>
@@ -43,7 +43,7 @@
               <h4>Presets</h4>
               <ul id='preset-list' class='unstyled'></ul>
               <p class='tools'>
-                <a href ="#" class='export'><i class='icon-circle-arrow-down'></i> Export</a> | <a href="#importModal" role="button" class="" data-toggle="modal"><i class='icon-circle-arrow-up'></i> Import</a>
+                <a href ="#export" class='export'><i class='icon-circle-arrow-down'></i> Export</a> | <a href="#import" role="button" class="" ><i class='icon-circle-arrow-up'></i> Import</a>
               </p>
             </div>
           </div>
@@ -58,6 +58,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">Import your presets</h3>
           </div>
+          
           <div class="modal-body">
             <p>
               This will not affect your existing presets.
@@ -73,32 +74,32 @@
         
         <script type="text/template" id="metronome-template">
           <div class='wrapper <%- status %>'>
-      			<div id='on-off-div'>
-        			<button class="start">On</button>
-        			<button class="stop">Off</button>
-       		 	</div>
-            <div id="slider"></div>    			
-    			  <div class='row'>
-      			  <div id='bpm-div' class='span2'>
+            <div id='on-off-div'>
+              <button class="start">On</button>
+              <button class="stop">Off</button>
+              </div>
+            <div id="slider"></div>          
+            <div class='row'>
+              <div id='bpm-div' class='span2'>
                 <label for="amount">Beats per Minute:</label>
-              	<input type="text" id="bpm" readonly='readonly' />
+                <input type="text" id="bpm" readonly='readonly' />
               </div>
               <div class='preset-form span4'>
-        			  <input name='title' id='title'></button>
-        			  <button id="new-preset" name="title">New Preset</button>
-        			  <div class='prompt'></div>
-        			</div>
-      			</div>
+                <input name='title' id='title'></button>
+                <button id="new-preset" name="title">New Preset</button>
+                <div class='prompt'></div>
+              </div>
+            </div>
           </div>
         </script>
         
         <script type="text/template" id="preset-template">
-      		<div class="view">
-      			<%- title %> : 
-      			<%- bpm %> bpm
-      			<button class="destroy icon-trash"></button>
-      		</div>
-      	</script>
+          <div class="view">
+            <%- title %> : 
+            <%- bpm %> bpm
+            <button class="destroy icon-trash"></button>
+          </div>
+        </script>
         
         <script src="assets/js/libs/jquery.js"></script>
         <script src="assets/js/libs/underscore.js"></script>
@@ -106,6 +107,8 @@
         <script src="assets/js/libs/backbone.localstorage.js"></script>
         <script src="assets/js/libs/bootstrap.js"></script>
         <script src="assets/js/libs/jquery-ui.js"></script>
+        
+        <script src="src/router.js"></script>
         
         <script src="src/models/metronome.js"></script>
         <script src="src/models/preset.js"></script>
