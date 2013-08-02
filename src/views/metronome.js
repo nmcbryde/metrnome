@@ -8,7 +8,7 @@ var app = app || {};
       model: new app.Metronome(),
       
       el: "#metronome",
-      template: _.template( $('#metronome-template').html() ),
+      template: JST['metronome'],
 
       events: {
         'click .start':  'start',

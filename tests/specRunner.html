@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>The Coffee App's Test Runner</title>
+
+  <link rel="stylesheet" type="text/css" href="../components/jasmine/lib/jasmine-core/jasmine.css">
+  <script type="text/javascript" src="../components/jasmine/lib/jasmine-core/jasmine.js"></script>
+  <script type="text/javascript" src="../components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+
+
+  <!-- app's source code files go here -->
+	<script src="../assets/js/libs/jquery.js"></script>
+  <script src="../assets/js/libs/underscore.js"></script>
+  <script src="../assets/js/libs/backbone.js"></script>
+  <script src="../assets/js/libs/backbone.localstorage.js"></script>
+  <script src="../assets/js/libs/bootstrap.js"></script>
+  <script src="../assets/js/libs/jquery-ui.js"></script>
+  
+  
+
+
+	<!-- test spec files go here -->
+  <script type="text/javascript" src="spec/models/metrnomeSpec.js"></script>
+  <script type="text/javascript" src="spec/views/presetsSpec.js"></script>
+
+
+  <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+
+</head>
+
+<body>
+  <div id='metronome'></div>
+  
+  <script src="../src/templates/jst.js"></script>
+  
+  <script src="../src/router.js"></script>
+  
+  <script src="../src/models/metronome.js"></script>
+  <script src="../src/models/preset.js"></script>
+  
+  <script src="../src/collections/presets.js"></script>
+  <script src="../src/views/metronome.js"></script>
+  <script src="../src/views/presets.js"></script>
+  
+</body>
+</html>

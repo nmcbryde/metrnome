@@ -10,7 +10,7 @@ $(function() {
 
 		tagName:  'li',
 
-		template: _.template( $('#preset-template').html() ),
+        template: JST['preset'],
 		
 		events: {
 			'click .destroy':	'clear',

@@ -14,7 +14,7 @@ var sound =	 new Audio("/assets/sound/tick.mp3");
 		},
 		
 		tick: function() {
-			sound.play();			
+			sound.play();
 		},
 		
 		start: function() {
